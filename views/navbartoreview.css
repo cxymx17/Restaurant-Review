@@ -1,0 +1,489 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+@import url('https://fonts.cdnfonts.com/css/signatie');
+@import url('https://fonts.cdnfonts.com/css/passeio-test');
+
+* {
+  box-sizing: border-box;
+ 
+}
+
+body {
+  display: flex;
+  background-color: #eff7d3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 0%;
+  padding-right: 0%;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 5%;
+  background-image: url(bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Fix the background image while scrolling */
+  margin: 0;
+  padding: 0;
+}
+
+nav{
+  position: fixed;
+  font-family: 'Poppins';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  background: rgb(185, 199, 184);
+  border-bottom: 1px solid   #eff7d3;
+  border-top: 1px solid   #eff7d3;
+  border-radius: 5px;
+  z-index: 1000;
+  margin-bottom: 20px;
+}
+
+nav .title{
+  padding: 10px 10px;
+  height: 80px;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: #535a3b;
+  font-family: 'signatie';
+}
+
+nav a{
+  display: flex;
+  float: right;
+  margin: 0;
+  line-height: 60px;
+  color: #535a3b;
+  padding: 10px 40px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+  
+nav a:hover{
+  color: #eff7d3;
+  background-color: #707955;
+  border-radius: 30px;
+}
+
+.search-container {
+  display: flex;
+  align-items: right;
+  padding: 10px 100px;
+  font-family: 'Poppins';
+}
+
+.search-container input {
+  padding: 10px;
+  border-radius: 30px;
+  margin-right: 5px;
+  font-family: 'Poppins';
+}
+
+.search-container button {
+  padding: 8px 25px;
+  background-color: #535a3b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.search-container button:hover {
+  background-color: #a7b99e;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+h1.title {
+  font-size: 45px;
+  line-height: 45px;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
+  font-family: 'signatie';
+}
+
+p {
+  font-size: 13px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+}
+
+.content {
+    display: flex;
+    width: 100%;
+    height: 50px;
+    align-items: center;
+    justify-content: space-around;
+  }
+  
+  .content .checkbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .content input {
+    accent-color: #333;
+    width: 12px;
+    height: 12px;
+  }
+  
+  .content label {
+    font-size: 14px;
+    user-select: none;
+    padding-left: 5px;
+  }
+
+button {
+    position: relative;
+    border-radius: 20px;
+    border: 1px solid #a7b99e;
+    background-color: #a7b99e;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 10px;
+    padding: 12px 80px;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    transition: 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    letter-spacing: 3px;
+  }
+  
+  button:active {
+    transform: scale(0.95);
+  }
+  
+  button:focus {
+    outline: none;
+  }
+  
+  button.ghost {
+    background-color: rgba(225, 225, 225, 0.2);
+    border: 2px solid #f9ffe4;
+    color: #f9ffe4;
+  }
+  
+  button.ghost i{
+    position: absolute;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+  }
+  
+  button.ghost i.register{
+    right: 70px;
+  }
+  
+  button.ghost i.login{
+    left: 70px;
+  }
+  
+  button.ghost:hover i.register{
+    right: 40px;
+    opacity: 1;
+  }
+  
+  button.ghost:hover i.login{
+    left: 40px;
+    opacity: 1;
+  }
+
+  .topContainer {
+    height: 20%;
+    width: 100%;
+    background-color: #eff7d3; /* or any other color you prefer */
+
+  }
+
+  .outerContainer{
+    width: 100%;
+    display: flex;
+    margin-top: 70px;   
+  }
+
+  .Title {
+    margin-top: 45px;   
+    width: 40%;
+    height: 40%;
+    border-radius: 30px;
+    margin-top: 15%;
+    margin-left: 37%;
+    background-color: rgb(185, 199, 184, 0.8);
+  }
+  
+  .Title p{
+    text-align: center;
+    font-size: 22px;
+    margin-top: 50px;
+    font-family: 'signatie';
+   
+  }
+
+  
+
+  .restaurantDescription{
+    margin-left: 40%;
+  }
+
+  .categoriesContainer{
+    position: fixed;
+    width: 15%;
+    height: 100%;
+    background: rgb(185, 199, 184);
+    box-sizing: border-box;
+    text-align: center;
+    margin-top: 10px;
+    left: 0;
+    border-radius: 5px;
+  }
+
+  .Categories{
+    margin-top: 60%;
+
+  }
+
+
+  .Categories a{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    line-height: 60px;
+    color: #535a3b;
+    padding: 10px 40px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 30px;
+  }
+  
+.Categories a:hover{
+    color: #eff7d3;
+    background-color: #707955;
+    border-radius: 30px;
+  }
+  .mainContainer{
+    margin-top: 5%;
+    margin-left: 19%;
+    display: flex;
+    width: 75%;
+    background-color: rgb(185, 199, 184, 0.8);
+    border-radius: 10px;
+    
+  }
+
+  .submitReviewsContainer{
+    background-color: rgba(255, 255, 255, 0.9); /* 90% opacity white */
+    width: 40%; /* Adjust the width as needed */
+    margin-top: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    border-radius: 10px;
+  }
+
+  #review{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 10%;
+    color: #333;
+    text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+  }
+
+
+  .reviewsContainer{
+    background-color: rgba(255, 255, 255, 0.9); /* 90% opacity white */
+    width: 900%; /* Adjust the width as needed */
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+
+
+  .card-column {
+    display: flex;
+    flex-direction: column;
+    height: 600px; /* Adjust the height as per your requirement */
+    overflow-y: auto;
+    margin: 10px;
+
+}
+
+.card {
+    background: #fff;
+    width: 100%; 
+    padding-bottom: 25%; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.card h3 {
+    font-size: 20px;
+    margin: 0;
+    color: #333;
+}
+
+.card p {
+    font-size: 14px;
+    color: #666;
+}
+
+.info{
+    display: flex;
+    align-items: center;
+}
+
+.info img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; /*para maging bilog*/
+    border: solid 1px #EFEFEF;
+}
+
+.info p{
+    font-weight: bolder;
+    margin-left: 15px;
+}
+
+.description p{
+    font-size: 12px;
+    overflow: hidden; /* Hide overflowing content within the description */
+    position: relative; /* Set position to relative for absolute positioning */
+ 
+}
+
+
+
+.hepfulUnhelpful{
+    text-align: right;
+    color: #666;
+    font-size: 12px;
+}
+
+
+.rating p{
+    color: darkgoldenrod;
+    font-size: 14px;
+}
+
+
+  #textArea {
+    margin-top: 10%;
+    margin-left: 5%;
+    width: 90%;
+    resize: none;
+    border-radius: 5px;
+    height: 40%;
+    font-size: 0.875rem;
+    padding: 0 0.5em;
+  }
+
+  #recommendation{
+    margin-top: 5%;
+    margin-left: 5%;
+    font-size: 15px;
+    text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+  }
+
+  #fileUpload{
+    margin-left: 5%;
+    margin-top: 5%;
+    font-size: 15px;
+    text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+  }
+
+  #send{
+    margin-top: 7%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+ .establishmentProfile {
+  display: flex;
+  width: 250px;
+  height: 200px;
+  overflow: hidden;
+  margin-right: 10px;
+  border-radius: 20%;
+}
+.establishmentProfile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  
+}
+.title p{
+  font-size: 18px;
+  font-weight: bolder;
+  color: #2B2B2A ;
+}
+
+
+  
+  /* Fading animation */
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4}
+    to {opacity: 1}
+  }
+  form {
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+  }
+  
+  input {
+    background-color: #eee;
+    border-radius: 30px;
+    border: none;
+    padding: 12px 15px;
+    margin: 8px 0;
+    width: 100%;
+  }

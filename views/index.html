@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="png" href="favicon.png">
+  <link rel="stylesheet" href="/login.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login/Register</title>
+</head>
+<body>
+  <div id="alert-container" class="alert-container">
+    <p id="alert-message" class="alert-message"></p>
+  </div>
+  
+    <nav>
+        <div class="title">FlavorFinds</div>
+          <!--TODO: profile dropdown-->
+          <a href="/home">Profile</a>
+          <a href="/restau1">Reviews</a>
+          <a href="/home">Home</a>
+          <div class="search-container">
+            <input type="text" id="search" placeholder="Search">
+            <button type="button"><i class="fas fa-search"></i></button>      </div>
+      </nav>
+
+    <div class="card" id="card">
+
+      <div class="form-card register-card" class="form-group">
+        <form action="/" method="post" onsubmit="return validateRegistrationForm()">
+          <h1 style="color: #535a3b; font-family: 'Passeio Test';">Register</h1>
+          <input class="form-control" placeholder="Full Name" name="fullname" required> <br>
+          <input class="form-control" placeholder="Username" name="username" required><br>
+          <input class="form-control" placeholder="Password" name="password" required><br>
+          <textarea class="form-control" placeholder="Short Description (optional)" name="description"></textarea> <br>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+       
+
+        <div class="form-card login-card" class="form-group">
+                    <!-- Add an ID to the login form for event handling -->
+          <form action="/login" method="post" id="login-form">
+            <h1 style="color: #535a3b; font-family: 'Passeio Test';">Login</h1>
+            <input class="form-control" name="username" id="username" placeholder="Username">
+            <input class="form-control" name="password" id="password" type="password" placeholder="Password">
+            <div class="content">
+              <div class="checkbox">
+                <input type="checkbox" name="checkbox" id="checkbox">
+                <label>Remember me</label>
+              </div>
+            </div>
+            <button type="submit">Login</button>
+          </form>
+
+      </div>
+      
+
+        <div class="overlay-card">
+            <div class="overlay">
+              <div class="overlay-panel overlay-left">
+                <h1 class="title">FlavorFinds</h1>
+                <p>If you have an account, login here</p>
+                <button class="ghost" id="login">Login
+                  <i class="lni lni-arrow-left login"></i>
+                </button>
+              </div>
+              <div class="overlay-panel overlay-right">
+                <h1 class="title">FlavorFinds</h1>
+                <p>If you haven't registered yet, join and embark on your journey with us.</p>
+                <button class="ghost" id="register">Register
+                  <i class="lni lni-arrow-right register"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+      
+    </div>
+    
+    <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,399 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+@import url('https://fonts.cdnfonts.com/css/signatie');
+@import url('https://fonts.cdnfonts.com/css/passeio-test');
+
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+  display: flex;
+  background-color: #eff7d3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 0%;
+  padding-right: 0%;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 5%;
+  background-image: url(bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+nav{
+  position: fixed;
+  font-family: 'Poppins';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  background: rgb(185, 199, 184);
+  border-bottom: 1px solid   #eff7d3;
+  border-top: 1px solid   #eff7d3;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+nav .title{
+  padding: 10px 10px;
+  height: 80px;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: #535a3b;
+  font-family: 'signatie';
+}
+
+nav a{
+  display: flex;
+  float: right;
+  margin: 0;
+  line-height: 60px;
+  color: #535a3b;
+  padding: 10px 40px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+nav a:hover{
+  color: #eff7d3;
+  background-color: #707955;
+  border-radius: 30px;
+}
+
+.search-container {
+    display: flex;
+    align-items: right;
+    padding: 10px 100px;
+    font-family: 'Poppins';
+}
+
+.search-container input {
+    padding: 10px;
+    border-radius: 30px;
+    margin-right: 5px;
+    font-family: 'Poppins';
+}
+
+.search-container button {
+    padding: 8px 25px;
+    background-color: #535a3b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search-container button:hover {
+    background-color: #a7b99e;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+h1.title {
+  font-size: 45px;
+  line-height: 45px;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
+  font-family: 'signatie';
+}
+
+p {
+  font-size: 13px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+}
+
+.content {
+  display: flex;
+  width: 100%;
+  /*height: 100px;*/
+  align-items: center;
+  justify-content: space-around;
+}
+
+.content .checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content input {
+  accent-color: #333;
+  width: 12px;
+  height: 12px;
+}
+
+.content label {
+  font-size: 14px;
+  user-select: none;
+  padding-left: 5px;
+}
+
+button {
+  position: relative;
+  border-radius: 20px;
+  border: 1px solid #a7b99e;
+  background-color: #a7b99e;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 10px;
+  padding: 12px 80px;
+  letter-spacing: 1px;
+  text-transform: capitalize;
+  transition: 0.3s ease-in-out;
+}
+
+button:hover {
+  letter-spacing: 3px;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+button:focus {
+  outline: none;
+}
+
+button.ghost {
+  background-color: rgba(225, 225, 225, 0.2);
+  border: 2px solid #f9ffe4;
+  color: #f9ffe4;
+}
+
+button.ghost i{
+  position: absolute;
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+}
+
+button.ghost i.register{
+  right: 70px;
+}
+
+button.ghost i.login{
+  left: 70px;
+}
+
+button.ghost:hover i.register{
+  right: 40px;
+  opacity: 1;
+}
+
+button.ghost:hover i.login{
+  left: 40px;
+  opacity: 1;
+}
+
+form {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 50px;
+  height: 100%;
+  text-align: center;
+}
+
+input {
+  background-color: #eee;
+  border-radius: 30px;
+  border: none;
+  padding: 12px 15px;
+  margin: 8px 0;
+  width: 100%;
+}
+
+.arrow {
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  padding: 457px;   
+  box-shadow: 0 30px 50px #dbdbdb;
+  margin-top: 100px; 
+  min-height: 100vh; /* Makes the container at least the height of the viewport */
+  z-index: 2;
+}
+
+.container .content {
+  padding: 20px;
+}
+
+#slide{
+  width:max-content;
+  margin-top:40px;
+}
+
+.item{
+  width:200px;
+  height:300px;
+  background-position: 50% 50%;
+  display: inline-block;
+  transition: 0.5s;
+  background-size: cover;
+  position: absolute;
+  z-index: 1;
+  top:50%;
+  transform: translate(0,-50%);
+  border-radius: 20px;
+  box-shadow:  0 30px 50px #505050;
+}
+.item:nth-child(1),
+.item:nth-child(2){
+  left:0;
+  top:0;
+  transform: translate(0,0);
+  border-radius: 0;
+  width:100%;
+  height:100%;
+  box-shadow: none;
+}
+.item:nth-child(3){
+  left:50%;
+}
+.item:nth-child(4){
+  left:calc(50% + 220px);
+}
+.item:nth-child(5){
+  left:calc(50% + 440px);
+}
+.item:nth-child(n+6){
+  left:calc(50% + 660px);
+  opacity: 0;
+}
+.item .content{
+  position: absolute;
+  top:50%;
+  left:100px;
+  width:300px;
+  text-align: left;
+  padding:0;
+  color:#eee;
+  transform: translate(0,-50%);
+  display: none;
+  font-family: system-ui;
+}
+.item:nth-child(2) .content{
+  display: block;
+  z-index: 11111;
+}
+.item .name{
+  font-size: 40px;
+  font-weight: bold;
+  opacity: 0;
+  animation:showcontent 1s ease-in-out 1 forwards
+}
+.item .des{
+  margin:20px 0;
+  opacity: 0;
+  animation:showcontent 1s ease-in-out 0.3s 1 forwards
+}
+.item button{
+  padding:10px 20px;
+  border:none;
+  opacity: 0;
+  animation:showcontent 1s ease-in-out 0.6s 1 forwards
+}
+@keyframes showcontent{
+  from{
+      opacity: 0;
+      transform: translate(0,100px);
+      filter:blur(33px);
+  }to{
+      opacity: 1;
+      transform: translate(0,0);
+      filter:blur(0);
+  }
+}
+.buttons{
+  position: absolute;
+  bottom:120px;
+  z-index: 222222;
+  text-align: center;
+  width:100%;
+}
+.buttons button{
+  width:50px;
+  height:50px;
+  border-radius: 50%;
+  border:1px solid #555;
+  transition: 0.5s;
+}
+
+.buttons button:hover{
+  background-color: #bac383;
+}
+
+.category-container {
+  position: relative;
+  width: 100%;
+  height: 900px;
+  z-index: 2;
+  background: #fff; 
+  padding: 0px; 
+  margin-top: 0px; 
+  margin-left: 0%;
+  margin-right: 0%;
+  padding: 1.2rem;
+  border-radius: 10px;
+}
+
+.card-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card {
+  background: #fff;
+  width: calc(25% - 20px); /* 4 cards per row with some spacing */
+  padding-bottom: calc(25% - 20px); /* To create square cards */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 20px;
+  transition: box-shadow 0.3s ease;
+}
+
+
+.card:hover {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin: 0;
+  color: #333;
+}
+
+.card p {
+  font-size: 14px;
+  color: #666;
+}
+
