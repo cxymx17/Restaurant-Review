@@ -440,7 +440,7 @@ color: #2B2B2A ;
   to {opacity: 1}
 }
 
-form {
+/* form {
   background-color: white;
   display: flex;
   align-items: center;
@@ -449,7 +449,7 @@ form {
   padding: 0 50px;
   height: 100%;
   text-align: center;
-}
+} */
 
 input {
   background-color: #eee;
@@ -457,7 +457,7 @@ input {
   border: none;
   padding: 12px 15px;
   margin: 8px 0;
-  width: 100%;
+  width: 65%;
 }
 
 
