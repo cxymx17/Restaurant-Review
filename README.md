@@ -19,7 +19,7 @@ If you want to access through the web:
 
 1. You can use this link: https://fl-158t.onrender.com
 2. Enter these credentials or you can register your own account:
-   	UsernameL JeanTheChief
+   	Username: JeanTheChief
 	Password: 12345 
  	
 
