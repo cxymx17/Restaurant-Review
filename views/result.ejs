@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="png" href="favicon.png">
+  <link rel="stylesheet" href="result.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Results</title>
+</head>
+<body>
+
+<nav>
+    <div class="title">FlavorFinds</div>
+    <!--TODO: profile dropdown-->
+    <a href="/profile">Profile</a>
+    <a href="/restau1">Reviews</a>
+    <a href="/home.html">Home</a>
+    <a href="/aboutus">About us</a>
+    <div class="search-container">
+        <form action="/result" method="GET">
+            <input type="text" name="search" id="search" placeholder="Search">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </form>
+    </div>
+</nav>
+
+<!-- result.ejs -->
+
+<div class="outerContainer">
+    <div class="mainContainer">
+        <div class="reviewsContainer">
+            <div class="card-column">
+                <% reviews.forEach(review => { %>
+                    <div class="card">
+                        <div class="info">
+                            <% if (review.avatar && review.avatar.trim() !== '') { %>
+                              <img src="<%= review.avatar.replace(/\\/g, '/') %>" alt="Review Avatar">
+                            <% } else { %>
+                              <img src="avatar.jpg" alt="Default">
+                            <% } %>
+                            <p>@<%= review.username %></p>
+                          </div>
+                                                      
+                        <div class="description">
+                            <div class="rating">
+                                <p>Rating: <%= review.recommended ? 'recommended' : 'not recommended' %></p>
+                            </div>
+                            <div class="title">
+                                <p><%= review.title %></p>
+                            </div>
+                            <div class="body">
+                                <p><%= review.body %></p>
+                            </div>
+                            <div class="establishmentProfile">
+                                <% if (review && review.image && review.image.trim() !== '') { %>
+                                    <img src="<%= review.image.replace(/\\/g, '/') %>">
+                                <% } %>
+                            </div>
+                        </div>
+                        <div class="hepfulUnhelpfulContainer">
+                            <div class="hepfulUnhelpful">
+                                <span class="helpfulUnhelpfulButton helpfulButton">Helpful</span>
+                                <span class="helpfulUnhelpfulCount"><%= review.helpful %></span>
+                            </div>
+                            <div class="hepfulUnhelpful">
+                                <span class="helpfulUnhelpfulButton unhelpfulButton">Unhelpful</span>
+                                <span class="helpfulUnhelpfulCount"><%= review.unhelpful %></span>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
