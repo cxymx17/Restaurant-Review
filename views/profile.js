@@ -99,7 +99,23 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 
+// Event listener for the search button
+document.addEventListener('DOMContentLoaded', function () {
+  const searchButton = document.querySelector('.search-container button');
+  searchButton.addEventListener('click', searchReviews);
+});
 
+// restau1.js or wherever you handle the search
+async function searchReviews() {
+  const searchQuery = document.getElementById('search').value;
+
+  try {
+    // Redirect to the result page with the search query
+    window.location.href = `/result?search=${searchQuery}`;
+  } catch (error) {
+    console.error('Error redirecting to result page:', error);
+  }
+}
 
 
 
