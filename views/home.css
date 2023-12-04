@@ -96,6 +96,9 @@ nav a:hover{
   margin-left: 5px; 
 }
 
+.search-container button:hover {
+    background-color: #a7b99e;
+}
 
 
 h1 {
