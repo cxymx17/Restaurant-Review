@@ -80,7 +80,6 @@ nav a:hover{
   border-radius: 30px;
   margin-right: 5px;
   font-family: 'Poppins';
-  flex: 1; /* Take remaining space */
 }
 
 .search-container button {
@@ -91,6 +90,7 @@ nav a:hover{
   border-radius: 30px;
   cursor: pointer;
   font-size: 18px;
+  margin-left: 5px; /* Add margin to the left to create space between input and button */
 }
 
 h1 {
