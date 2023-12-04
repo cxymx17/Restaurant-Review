@@ -68,33 +68,31 @@ nav a:hover{
   background-color: #707955;
   border-radius: 30px;
 }
-  .search-container {
-    display: flex;
-    align-items: right;
-    padding: 10px 100px;
-    font-family: 'Poppins';
+ .search-container {
+  display: flex;
+  align-items: center; /* Align items vertically in the center */
+  padding: 10px 100px;
+  font-family: 'Poppins';
 }
 
 .search-container input {
-    padding: 10px;
-    border-radius: 30px;
-    margin-right: 5px;
-    font-family: 'Poppins';
+  padding: 10px;
+  border-radius: 30px;
+  margin-right: 5px;
+  font-family: 'Poppins';
+  flex: 1; /* Take remaining space */
 }
 
 .search-container button {
-    padding: 8px 25px;
-    background-color: #535a3b;
-    color: white;
-    border: none;
-    border-radius: 30px;
-    cursor: pointer;
-    font-size: 18px;
+  padding: 8px 25px;
+  background-color: #535a3b;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
 }
 
-.search-container button:hover {
-    background-color: #a7b99e;
-}
 h1 {
   font-weight: 700;
   letter-spacing: -1.5px;
