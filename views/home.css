@@ -93,6 +93,9 @@ nav a:hover{
   font-size: 18px;
 }
 
+.search-container button:hover {
+    background-color: #a7b99e;
+}
 
 h1 {
   font-weight: 700;
