@@ -36,7 +36,7 @@
                 <% reviews.forEach(review => { %>
                     <div class="card">
                         <div class="info">
-                            <% if (review.avatar && review.avatar.trim() !== '') { %>
+                            <% if (review.avatar && review.avatar.trim() !== '/uploads') { %>
                               <img src="<%= review.avatar.replace(/\\/g, '/') %>" alt="Review Avatar">
                             <% } else { %>
                               <img src="avatar.jpg" alt="Default">
