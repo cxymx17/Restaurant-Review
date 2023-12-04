@@ -68,7 +68,7 @@ nav a:hover{
   background-color: #707955;
   border-radius: 30px;
 }
- .search-container {
+.search-container {
   display: flex;
   align-items: center;
   padding: 10px 100px;
@@ -76,7 +76,7 @@ nav a:hover{
 }
 
 .search-container input {
-  flex: 1; /* Use the available space in the container */
+  flex: 1;
   padding: 10px;
   border-radius: 30px;
   margin-right: 5px;
@@ -91,7 +91,9 @@ nav a:hover{
   border-radius: 30px;
   cursor: pointer;
   font-size: 18px;
+  margin-left: 5px; /* Add margin to separate the input and button */
 }
+
 
 
 h1 {
