@@ -21,7 +21,17 @@ app.use(session({ secret: 'your-secret-key', resave: true, saveUninitialized: tr
 app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');  // Set the views directory
 
-mongoose.connect('mongodb+srv://Cymbeline:Cymbeline.anne@cluster0.q20uyuy.mongodb.net/cluster0');
+mongoose.connect('mongodb+srv://Cymbeline:Cymbeline.anne@cluster0.q20uyuy.mongodb.net/cluster0', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+  .then(() => {
+    console.log('Connected to MongoDB');
+  })
+  .catch((err) => {
+    console.error('Error connecting to MongoDB:', err);
+  });
+
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -384,7 +394,23 @@ app.use(express.static(__dirname + '/views'));
 //app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.use('/uploads', express.static('uploads'));
 
-
+// Add the following route for handling search and redirecting to the result page
+app.get('/result', async (req, res) => {
+    const searchQuery = req.query.search;
+  
+    try {
+      // Fetch reviews that match the search query from your database
+      const filteredReviews = await Review.find({ $text: { $search: searchQuery } });
+  
+      // Render the 'result.ejs' file and pass the filtered reviews and search query
+      res.render('result', { reviews: filteredReviews, searchQuery });
+    } catch (error) {
+      console.error('Error fetching search results:', error);
+      res.status(500).send('Internal Server Error');
+    }
+  });
+  
+  
 
 app.listen(3000, () => {
     console.log('Server is running');
