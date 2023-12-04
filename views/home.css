@@ -84,6 +84,7 @@ nav a:hover{
 }
 
 .search-container button {
+  display: flex;
   padding: 8px 25px;
   background-color: #535a3b;
   color: white;
