@@ -68,10 +68,11 @@ nav a:hover{
   background-color: #707955;
   border-radius: 30px;
 }
+
 .search-container {
   display: flex;
   align-items: center;
-  padding: 10px 100px;
+  padding: 10px 20px; 
   font-family: 'Poppins';
 }
 
@@ -85,15 +86,15 @@ nav a:hover{
 
 .search-container button {
   display: flex;
-  padding: 8px 25px;
+  padding: 10px 20px; 
   background-color: #535a3b;
   color: white;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   font-size: 18px;
+  margin-left: 5px; 
 }
-
 
 
 
