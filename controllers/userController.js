@@ -40,25 +40,39 @@ const userController = {
   },
 
   
-  login: async (req, res) => {
+login: async (req, res) => {
     try {
       const { username, password } = req.body;
-  
-      // Validate username and password 
+
+      // Validate username and password
       if (!username || !password) {
         return res.status(400).json({ error: 'Username and password are required.' });
       }
-  
+
       // Check if the user exists in the database
       const user = await User.findOne({ username });
-  
+
       if (user) {
         // Compare the hashed input password with the stored hashed password
         const passwordMatch = await bcrypt.compare(password, user.password);
-  
+
         if (passwordMatch) {
-          // Successful login, set the user information in the session
+          // Successful login
           req.session.user = user;
+
+          // Check if "Remember me" token exists
+          const rememberMeToken = req.headers['remember-me-token'];
+          if (rememberMeToken) {
+            // Perform additional validation for the persistent token (replace with your own validation logic)
+            if (rememberMeToken === 'your_persistent_token_here') {
+              // Automatically log in the user
+              console.log('Automatic login for user:', user.username);
+              return res.status(200).json({ message: 'Login successful' });
+            } else {
+              console.log('Invalid persistent token');
+            }
+          }
+
           console.log('Login successful for user:', user.username);
           return res.status(200).json({ message: 'Login successful' });
         } else {
