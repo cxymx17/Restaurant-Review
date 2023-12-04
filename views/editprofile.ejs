@@ -9,14 +9,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Edit Profile</title>
 </head>
+<script>
+  function updatePreview(event) {
+      const file = event.target.files[0];
 
+      if (file) {
+          const reader = new FileReader();
+
+          reader.onload = function (e) {
+              const preview = document.getElementById('avatar-preview');
+              preview.src = e.target.result;
+          }
+
+          reader.readAsDataURL(file);
+      }
+  }
+</script>
 <body>
   <nav>
     <div class="title">FlavorFinds</div>
     <!--TODO: profile dropdown-->
     <a href="/profile">Profile</a>
-    <a href="/navbartoreview.html">Reviews</a>
+    <a href="/restau1">Reviews</a>
     <a href="/home.html">Home</a>
+    <a href="/aboutus">About us</a>
+    
     <div class="search-container">
       <input type="text" id="search" placeholder="Search">
       <button type="button"><i class="fas fa-search"></i></button>
@@ -27,10 +44,14 @@
     <form action="/updateProfile" method="post" enctype="multipart/form-data">
         <h1 style="color: #535a3b; font-family: 'Passeio Test';">EDIT PROFILE</h1>
         <div class="avatar">
-            <label for="avatar">
-                <img id="avatar-preview" src="<%= user.profilePicture %>" alt="Avatar">
-                <input type="file" id="avatar" name="avatar" accept="image/*" onchange="updatePreview(event)">
-            </label>
+          <label for="avatar">
+            <% if (user.avatar && user.avatar.trim() !== '/uploads') { %>
+              <img id="avatar-preview" src="<%= user.avatar.replace(/\\/g, '/') %>" alt="Avatar">
+            <% } else { %>
+              <img id="avatar-preview" src="avatar.jpg" alt="Default Avatar">
+            <% } %>
+            <input type="file" id="avatar" name="avatar" accept="image/*" onchange="updatePreview(event)">
+          </label>
         </div>
         <input type="text" name="fullname" placeholder="Full Name" value="<%= user.fullname %>">
         <input type="text" name="username" placeholder="Username" value="<%= user.username %>">

@@ -2,16 +2,27 @@
 const apiUrl = 'http://localhost:3000/api/reviews';
 
 // Function to fetch reviews
-async function fetchReviews() {
+async function fetchReviews(selectedCategoryId) {
   try {
-    const response = await fetch(apiUrl);
+    const response = await fetch(`${apiUrl}?categoryID=${selectedCategoryId}`);
     const reviews = await response.json();
-    // Call a function to dynamically render the reviews on the page
     renderReviews(reviews);
   } catch (error) {
     console.error('Error fetching reviews:', error);
   }
 }
+
+// Call the fetchReviews function with the selectedCategoryId when the page loads
+document.addEventListener('DOMContentLoaded', function () {
+  const reviewsContainer = document.querySelector('.reviewsContainer');
+
+  // Get the selected category ID from the hidden input
+  const selectedCategoryId = document.querySelector('input[name="categoryID"]').value;
+
+  // Fetch and render reviews for the selected category
+  fetchReviews(selectedCategoryId);
+});
+
 
 // Function to dynamically render reviews on the page
 function renderReviews(reviews) {
@@ -86,3 +97,48 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
   });
+
+
+   // Assuming you have elements with class 'helpfulButton' and 'unhelpfulButton'
+const helpfulButtons = document.querySelectorAll('.helpfulUnhelpfulButton helpfulButton');
+const unhelpfulButtons = document.querySelectorAll('.helpfulUnhelpfulButton unhelpfulButton');
+
+helpfulButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+        const reviewId = button.closest('.reviewCard').dataset.reviewId;
+        try {
+            const response = await fetch(`/api/reviews/${reviewId}/helpful`, {
+                method: 'PUT'
+            });
+            if (response.ok) {
+                console.log('Marked as helpful');
+                const countElement = button.closest('.reviewCard').querySelector('.helpfulUnhelpfulCount');
+                countElement.textContent = parseInt(countElement.textContent) + 1; // Update count in UI
+            } else {
+                console.error('Failed to mark as helpful');
+            }
+        } catch (error) {
+            console.error('Error marking as helpful:', error);
+        }
+    });
+});
+
+unhelpfulButtons.forEach(button => {
+    button.addEventListener('click', async () => {
+        const reviewId = button.closest('.reviewCard').dataset.reviewId;
+        try {
+            const response = await fetch(`/api/reviews/${reviewId}/unhelpful`, {
+                method: 'PUT'
+            });
+            if (response.ok) {
+                console.log('Marked as unhelpful');
+                const countElement = button.closest('.reviewCard').querySelector('.helpfulUnhelpfulCount');
+                countElement.textContent = parseInt(countElement.textContent) + 1; // Update count in UI
+            } else {
+                console.error('Failed to mark as unhelpful');
+            }
+        } catch (error) {
+            console.error('Error marking as unhelpful:', error);
+        }
+    });
+});

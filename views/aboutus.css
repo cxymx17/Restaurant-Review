@@ -1,0 +1,179 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins");
+@import url('https://fonts.cdnfonts.com/css/signatie');
+@import url('https://fonts.cdnfonts.com/css/passeio-test');
+
+* {
+  box-sizing: border-box;
+
+}
+
+body {
+  display: flex;
+  background-color: #eff7d3;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding-left: 0%;
+  padding-right: 0%;
+  height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  padding-top: 5%;
+  background-image: url(bg2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+nav{
+  position: fixed;
+  font-family: 'Poppins';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  padding: 10px 50px;
+  box-sizing: border-box;
+  background: rgb(185, 199, 184);
+  border-bottom: 1px solid   #eff7d3;
+  border-top: 1px solid   #eff7d3;
+  border-radius: 5px;
+  z-index: 1000;
+}
+
+nav .title{
+  padding: 10px 10px;
+  height: 80px;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  color: #535a3b;
+  font-family: 'signatie';
+}
+
+nav a{
+  display: flex;
+  float: right;
+  margin: 0;
+  line-height: 60px;
+  color: #535a3b;
+  padding: 10px 40px;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+}
+
+nav a:hover{
+  color: #eff7d3;
+  background-color: #707955;
+  border-radius: 30px;
+}
+
+.search-container {
+    display: flex;
+    align-items: right;
+    padding: 10px 100px;
+    font-family: 'Poppins';
+}
+
+.search-container input {
+    padding: 10px;
+    border-radius: 30px;
+    margin-right: 5px;
+    font-family: 'Poppins';
+}
+
+.search-container button {
+    padding: 8px 25px;
+    background-color: #535a3b;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.search-container button:hover {
+    background-color: #a7b99e;
+}
+
+h1 {
+  font-weight: 700;
+  letter-spacing: -1.5px;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+h1.title {
+  font-size: 45px;
+  line-height: 45px;
+  margin: 0;
+  text-shadow: 0 0 10px rgba(16, 64, 74, 0.5);
+  font-family: 'signatie';
+}
+
+p {
+  font-size: 13px;
+  font-weight: lighter;
+  letter-spacing: 1px;
+  text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+}
+
+ul li {
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(16, 74, 19, 0.5);
+
+}
+
+
+section {
+    background: rgb(185, 199, 184);
+    width: 40%; 
+    margin: 20px auto; 
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow effect */
+    overflow-y: auto;
+}
+
+.profileimage{
+    display: inline-block; /* Ensure the image is a block element */
+    margin: 20px auto; /* Center the image horizontally with some margin */
+    max-width: 70%; /* Limit the image width to its container */
+    height: auto; /* Maintain the aspect ratio */
+    max-height: 200px;
+}
+
+.image-container {
+   
+    margin-top: 20px; /* Add some top margin to separate from the paragraph */
+}
+
+/* New styles for the header container */
+.about-us-header {
+    background-color: #707955;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .about-us-text {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  .contentsContainer{
+    background-color: rgba(255, 255, 255, 0.5); /* 90% opacity white */
+    width: 95%; /* Adjust the width as needed */
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 20px;
+    margin-right: 10px;
+    border-radius: 10px;
+  }
+
+  .contentsText{
+    margin: 20px;
+  }

@@ -18,55 +18,67 @@
         <a href="/profile">Profile</a>
         <a href="/restau1">Reviews</a>
         <a href="home.html">Home</a>
+        <a href="/aboutus">About us</a>
         <div class="search-container">
         <input type="text" id="search" placeholder="Search">
         <button type="button"><i class="fas fa-search"></i></button>
         </div>
     </nav>
 
+
+    <% var selectedCategoryId; %>    
     <div class="categoriesContainer">
         <div class="Categories">
             <% categories.forEach((category, index) => { %>
-                <% if (category.name === 'DIN TAI FUNG') { %>
-                    <p><a href="/restau1"><%= category.name %></a></p>
-                <% } else if (category.name === 'The Aristocrat') { %>
-                    <p><a href="/restau2"><%= category.name %></a></p>
-                <% } else if (category.name === 'Bistro Ravioli') { %>
-                    <p><a href="/restau3"><%= category.name %></a></p>
-                <% } else if (category.name === 'Lugang Cafe') { %>
-                    <p><a href="/restau4"><%= category.name %></a></p>
-                <% } else if (category.name === "Italliani's") { %>
-                    <p><a href="/restau5"><%= category.name %></a></p>
+                <% if (!selectedCategoryId && category.name === 'DIN TAI FUNG' && req.originalUrl === '/restau1') { %>
+                    <% selectedCategoryId = category._id; %>
+                    <a href="/restau1"><%= category.name %></a>
+                <% } else if (!selectedCategoryId && category.name === 'The Aristocrat' && req.originalUrl === '/restau2') { %>
+                    <% selectedCategoryId = category._id; %>
+                    <a href="/restau2"><%= category.name %></a>
+                <% } else if (!selectedCategoryId && category.name === "Italliani's" && req.originalUrl === '/restau3') { %>
+                    <% selectedCategoryId = category._id; %>
+                    <a href="/restau3"><%= category.name %></a>
+                <% } else if (!selectedCategoryId && category.name === 'Lugang Cafe' && req.originalUrl === '/restau4') { %>
+                    <% selectedCategoryId = category._id; %>
+                    <a href="/restau4"><%= category.name %></a>
+                <% }else if (!selectedCategoryId && category.name === 'Bistro Ravioli' && req.originalUrl === '/restau5') { %>
+                    <% selectedCategoryId = category._id; %>
+                    <a href="/restau5"><%= category.name %></a>
                 <% } else { %>
-                    <p><a href="<%= `restau${index + 1}` %>"><%= category.name %></a></p>
+                    <a href="<%= `restau${index + 1}` %>"><%= category.name %></a>
                 <% } %>
             <% }); %>
-        </div> 
+        </div>
     </div>
     
     
-
-    ˜
     <div class="outerContainer">
         <div class="restaurantInfo">
             <div class="restaurantPic">
-                <img src="restauPics/Italiannis.jpeg">
+                <img src="restauPics/Bistro_Ravioli.jpeg">
             </div>
             
             <div class="restaurantDescription">
-                <h1>Italianni’s Restaurant</h1>
-                <p>Italianni’s provides a diverse selection of Italian and American cuisine, including entrees for breakfast, seafood, spaghetti, flatbread, antipasto, a variety of meat entrees, fantastic drinks, cocktails, and a lot more. You are provided with the finest Italian delicacies; each prepared using authentic Italian recipes. Every meal is prepared in the time-honored manner of classic Italian cooking, utilizing only ingredients of the highest possible standard.</p>
+                <h1>Bistro Ravioli</h1>
+                <p>Bistro Ravioli is a group of authentic Italian restaurants that bring Italy closer to the Philippines by way of traditional Italian cuisine like fresh pasta, brick oven pizza, and ravioli. Every dish uses only the freshest ingredients to give honor to traditional Italian cooking that we love so much.
+                </p>
             </div>
         </div>
+  
         <div class="mainContainer">
             <div class="reviewsContainer">
                 <div class="card-column">
                     <% reviews.forEach(review => { %>
                         <div class="card">
                             <div class="info">
-                                <img src="<%= review.avatar %>">
+                                <% if (review.avatar && review.avatar.trim() !== '') { %>
+                                  <img src="<%= review.avatar.replace(/\\/g, '/') %>" alt="Review Avatar">
+                                <% } else { %>
+                                  <img src="avatar.jpg" alt="Default">
+                                <% } %>
                                 <p>@<%= review.username %></p>
-                            </div>
+                              </div>
                             <div class="description">
                                 <div class="rating">
                                     <p>Rating: <%= review.recommended ? 'recommended' : 'not recommended' %></p>
@@ -78,11 +90,20 @@
                                     <p><%= review.body %></p>
                                 </div>
                                 <div class="establishmentProfile">
-                                    <img src="<%= review.image %>">
+                                    <% if (review && review.image && review.image.trim() !== '') { %>
+                                        <img src="<%= review.image.replace(/\\/g, '/') %>">
+                                    <% } %>
                                 </div>
                             </div>
                             <div class="hepfulUnhelpfulContainer">
-                                <!-- Similar modifications for other review properties -->
+                                <div class="hepfulUnhelpful">
+                                    <span class="helpfulUnhelpfulButton helpfulButton">Helpful</span>
+                                    <span class="helpfulUnhelpfulCount"><%= review.helpful %></span>
+                                </div>
+                                <div class="hepfulUnhelpful">
+                                    <span class="helpfulUnhelpfulButton unhelpfulButton">Unhelpful</span>
+                                    <span class="helpfulUnhelpfulCount"><%= review.unhelpful %></span>
+                                </div>
                             </div>
                         </div>
                     <% }) %>
@@ -90,16 +111,18 @@
             </div>
 
 
-                 <!-- TRY KO TO-->
             <div class="submitReviewsContainer">
-                    <form action="/submitReview" method="post">
+                <form action="/submitReview" method="post" enctype="multipart/form-data">
                     <div id="review">Submit a Review</div>
+            
                     <% if (user && user.username) { %>
                         <!-- If user is logged in and 'username' property exists -->
                         <input type="hidden" name="username" value="<%= user.username %>">
                     <% } %>
+            
                     <textarea name="title" id="titleTextArea" cols="30" rows="10" placeholder="Title..."></textarea>
                     <textarea name="body" id="bodyTextArea" cols="30" rows="10" placeholder="Body..."></textarea>
+            
                     <div id="recommendation">
                         <input type="radio" id="recommend" name="recommendation" value="recommend"> Recommend
                         <input type="radio" id="notRecommend" name="recommendation" value="notRecommend"> Not Recommended
@@ -108,15 +131,15 @@
                         <label for="file">Upload Image/Video:</label>
                         <input type="file" id="file" name="image" accept="image/*, video/*">
                     </div>
+                    <input type="hidden" name="categoryID" value="<%= selectedCategoryId %>">
                     <div id="send">
                         <button class="button" type="submit">Post</button>
                     </div>
-                    </form>
+                </form>
             </div>
-
-
         </div>
     </div>
+        
         
 
 

@@ -99,7 +99,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
 
-
    // Assuming you have elements with class 'helpfulButton' and 'unhelpfulButton'
 const helpfulButtons = document.querySelectorAll('.helpfulUnhelpfulButton helpfulButton');
 const unhelpfulButtons = document.querySelectorAll('.helpfulUnhelpfulButton unhelpfulButton');

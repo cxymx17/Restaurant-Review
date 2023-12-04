@@ -96,3 +96,22 @@ function validateRegistrationForm() {
 
   return true;
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const registrationForm = document.getElementById('registration-form');
+
+  if (registrationForm) {
+    registrationForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      // Call the validateRegistrationForm function
+      const isValid = validateRegistrationForm();
+
+      if (isValid) {
+        // If the form is valid, you can proceed with form submission
+        registrationForm.submit();
+      }
+    });
+  }
+});
+

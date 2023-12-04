@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="icon" type="png" href="favicon.png">
+  <link rel="stylesheet" href="/editReview.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Edit Review</title>
+</head>
+
+<body>
+  <nav>
+    <div class="title">FlavorFinds</div>
+    <!--TODO: profile dropdown-->
+    <a href="/profile">Profile</a>
+    <a href="/restau1">Reviews</a>
+    <a href="/home.html">Home</a>
+    <a href="/aboutus">About us</a>
+    <div class="search-container">
+      <input type="text" id="search" placeholder="Search">
+      <button type="button"><i class="fas fa-search"></i></button>
+    </div>
+  </nav>
+
+ 
+
+
+
+
+
+
+  <div class="submitReviewsContainer">
+    <!-- Assuming you have a route for editing reviews -->
+    <form action="/editReview/<%= review._id %>" method="post" enctype="multipart/form-data">
+      <!-- Existing review data -->
+      <textarea name="title" id="titleTextArea" cols="30" rows="10" placeholder="Title..."><%= review.title %></textarea>
+      <textarea name="body" id="bodyTextArea" cols="30" rows="10" placeholder="Body..."><%= review.body %></textarea>
+      <!-- Add logic to pre-select the correct recommendation -->
+      <div id="recommendation">
+        <input type="radio" id="recommend" name="recommendation" value="true" <% if (review.recommended === true) { %>checked<% } %>> Recommend
+        <input type="radio" id="notRecommend" name="recommendation" value="false" <% if (review.recommended === false) { %>checked<% } %>> Not Recommended
+      </div>
+
+      <!-- Existing file upload logic -->
+      <div id="fileUpload">
+        <label for="file">Upload Image/Video:</label>
+        <img src="<%= review && review.image ? review.image.replace(/\\/g, '/') : '' %>" alt="Current Image">
+        <input type="file" id="file" name="image" accept="image/*, video/*">
+      </div>
+
+      
+      <div id="send">
+          <button class="button" type="submit">Update</button>
+      </div>
+    </form>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

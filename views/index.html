@@ -20,6 +20,7 @@
           <a href="/home">Profile</a>
           <a href="/restau1">Reviews</a>
           <a href="/home">Home</a>
+          <a href="/aboutus">About us</a>
           <div class="search-container">
             <input type="text" id="search" placeholder="Search">
             <button type="button"><i class="fas fa-search"></i></button>      </div>
@@ -28,14 +29,20 @@
     <div class="card" id="card">
 
       <div class="form-card register-card" class="form-group">
-        <form action="/" method="post" onsubmit="return validateRegistrationForm()">
+        <form id="registration-form" method="POST" action="/register" enctype="multipart/form-data">
           <h1 style="color: #535a3b; font-family: 'Passeio Test';">Register</h1>
-          <input class="form-control" placeholder="Full Name" name="fullname" required> <br>
-          <input class="form-control" placeholder="Username" name="username" required><br>
-          <input class="form-control" placeholder="Password" name="password" required><br>
-          <textarea class="form-control" placeholder="Short Description (optional)" name="description"></textarea> <br>
-          <button type="submit">Register</button>
-        </form>
+          <div class="avatar">
+            <label for="avatar">
+                <img id="avatar-preview" src="avatar.jpg" alt="Avatar">
+                <input type="file" id="avatar" name="avatar" accept="image/*" onchange="updatePreview(event)">
+              </label>                
+          </div>
+          <input type="text" name="fullname" placeholder="Full Name">
+            <input type="text" name="username" placeholder="Username">
+            <input type="password" name="password" placeholder="Password">
+            <textarea name="description" placeholder="Short Description (optional)"></textarea><br>
+            <button>Register</button>
+          </form>
       </div>
        
 

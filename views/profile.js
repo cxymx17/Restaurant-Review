@@ -40,5 +40,69 @@ function renderUserProfile(user) {
 }
 
 
+/*
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteButtons = document.querySelectorAll('.deleteButton');
+
+  deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener('click', async () => {
+      const reviewId = deleteButton.dataset.reviewId;
+      const confirmDelete = confirm('Are you sure you want to delete this review?');
+      
+      if (confirmDelete) {
+        try {
+          const response = await fetch(`/reviews/${reviewId}`, {
+            method: 'DELETE'
+          });
+
+          if (response.ok) {
+            console.log('Review deleted successfully');
+            // Optionally, update the UI or remove the deleted review from the page
+          } else {
+            console.error('Failed to delete review');
+          }
+        } catch (error) {
+          console.error('Error deleting review:', error);
+        }
+      }
+    });
+  });
+});
+*/
+document.addEventListener('DOMContentLoaded', () => {
+  const deleteButtons = document.querySelectorAll('.deleteButton');
+
+  deleteButtons.forEach(deleteButton => {
+    deleteButton.addEventListener('click', async () => {
+      const reviewId = deleteButton.dataset.reviewId;
+      const confirmDelete = confirm('Are you sure you want to delete this review?');
+      
+      if (confirmDelete) {
+        try {
+          const response = await fetch(`/reviews/${reviewId}`, {
+            method: 'DELETE'
+          });
+
+          if (response.ok) {
+            console.log('Review deleted successfully');
+            // Remove the deleted review's DOM element from the UI
+            deleteButton.closest('.card').remove();
+          } else {
+            console.error('Failed to delete review');
+          }
+        } catch (error) {
+          console.error('Error deleting review:', error);
+        }
+      }
+    });
+  });
+});
+
+
+
+
+
+
+
 // Call the fetchUserProfile function when the page loads
 document.addEventListener('DOMContentLoaded', fetchUserProfile);
