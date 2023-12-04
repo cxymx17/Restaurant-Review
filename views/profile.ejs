@@ -72,7 +72,11 @@
                   <% if (review.username === user.username) { %>
                     <div class="card">
                       <div class="info">
-                        <img src="<%= user.avatar.replace(/\\/g, '/') %>" alt="User Avatar">
+                        <% if (user.avatar && user.avatar.trim() !== '/uploads') { %>
+                          <img src="<%= user.avatar.replace(/\\/g, '/') %>" alt="User Avatar">
+                        <% } else { %>
+                          <img src="avatar.jpg" alt="Default Avatar">
+                        <% } %>
                         <p>@<%= review.username %></p>
                       </div>
                       <div class="description">
