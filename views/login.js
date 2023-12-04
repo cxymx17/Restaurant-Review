@@ -49,6 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
       // Perform form validation and submit
       const username = document.getElementById('username').value;
       const password = document.getElementById('password').value;
+      const rememberMeCheckbox = document.getElementById('checkbox');
 
       if (!username || !password) {
         showAlert('Username and password are required.');
@@ -69,7 +70,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (response.status === 200) {
           // Successful login
-          showAlert('Login successful');  // Display a success alert
+          showAlert('Login successful');
+
+          // Check if "Remember me" is selected
+          if (rememberMeCheckbox && rememberMeCheckbox.checked) {
+            // Store a persistent token in localStorage
+            localStorage.setItem('rememberedUsername', username);
+            localStorage.setItem('rememberMeToken', 'your_persistent_token_here');
+          }
+
           window.location.href = '/home';
         } else {
           // Display an error alert
@@ -80,6 +89,16 @@ document.addEventListener('DOMContentLoaded', function () {
         showAlert('Internal Server Error. Please try again later.');
       }
     });
+
+    // Check for the presence of a persistent token on page load
+    const rememberedUsername = localStorage.getItem('rememberedUsername');
+    const rememberMeToken = localStorage.getItem('rememberMeToken');
+    
+    if (rememberedUsername && rememberMeToken) {
+      // Automatically populate the username and mark the checkbox as checked
+      document.getElementById('username').value = rememberedUsername;
+      document.getElementById('checkbox').checked = true;
+    }
   }
 });
 
