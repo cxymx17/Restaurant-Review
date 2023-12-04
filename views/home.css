@@ -70,12 +70,13 @@ nav a:hover{
 }
  .search-container {
   display: flex;
-  align-items: center; /* Align items vertically in the center */
+  align-items: center;
   padding: 10px 100px;
   font-family: 'Poppins';
 }
 
 .search-container input {
+  flex: 1; /* Use the available space in the container */
   padding: 10px;
   border-radius: 30px;
   margin-right: 5px;
@@ -90,8 +91,8 @@ nav a:hover{
   border-radius: 30px;
   cursor: pointer;
   font-size: 18px;
-  margin-left: 5px; /* Add margin to the left to create space between input and button */
 }
+
 
 h1 {
   font-weight: 700;
