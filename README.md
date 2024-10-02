@@ -1,4 +1,4 @@
-# MCO3
+# Restaurant Review Web App
 README FILE:
 
 This is a Restaurant Review Web Application. 
